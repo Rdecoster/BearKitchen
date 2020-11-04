@@ -32,6 +32,8 @@ this.handleSubmit = this.handleSubmit.bind(this)
     this.setState({isSelected: !this.state.isSelected});
     if( this.state.isSelected){
       this.props.addToSearch(this.props.items)
+    } else {
+      this.props.deleteFromSearch(this.props.items)
     }
   }
 

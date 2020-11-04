@@ -61,6 +61,7 @@ class App extends React.Component {
     this.addToPantry = this.addToPantry.bind(this);
     this.setUser = this.setUser.bind(this);
     this.addToSearch = this.addToSearch.bind(this);
+    this.deleteFromSearch = this.deleteFromSearch.bind(this)
   }
 
 addToPantry(item){
@@ -112,9 +113,11 @@ addToSearch(input){
 deleteFromSearch(input){
   let array = this.state.ingredientSearch;
   let index = array.indexOf(array);
-
-  if(index >= 0) {
+  console.log(index)
+  console.log(array, "Array from delete from search")
+  if(index !== 0) {
     array.splice(index,1)
+    console.log(array,"array from delete from search after splice")
     this.setState({ingredientSearch: array})
   }
 
@@ -135,7 +138,7 @@ SearchPantry(){
           </Header>
          <AddForm addToPantry={this.addToPantry}/>
         Pantry
-        <Pantry pantry={this.state.pantry} addToSearch={this.addToSearch}/>
+        <Pantry pantry={this.state.pantry} addToSearch={this.addToSearch} deleteFromSearch={this.deleteFromSearch}/>
         <Button>Search Recipes</Button>
         <SearchResults data={this.state}/>
 
