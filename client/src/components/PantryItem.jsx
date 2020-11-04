@@ -25,6 +25,7 @@ class PantryItem extends React.Component {
 
     };
 this.handleChange = this.handleChange.bind(this)
+this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(event) {
@@ -38,7 +39,7 @@ this.handleChange = this.handleChange.bind(this)
 
   render() {
     const item= this.props.items;
-    console.log(item)
+    // console.log(item)
     return (
 
       <ItemWrapper>

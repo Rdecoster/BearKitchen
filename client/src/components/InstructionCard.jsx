@@ -1,5 +1,5 @@
 import React from 'react';
-import PantryItem from './PantryItem.jsx'
+import Step from './Step.jsx'
 import styled from 'styled-components';
 
 const PantryWrapper = styled.div `
@@ -11,23 +11,27 @@ position:relative;
 overflow: nowrap;
 margin: 10px;
 padding: 10px;
-justify-content: center;
+justify-content: start;
 flex-wrap: wrap;
 flex-direction: row;
-flex-shrink: 1 2 auto;
+flex-shrink: 1 1 auto;
+overflow-y: none;
 
 `
 
-function Pantry({pantry}) {
-// console.log(pantry)
-  const listItems = pantry.map((item,index) => <PantryItem key={index} items={item} /> );
+function InstructionCard({data}) {
+// console.log(data)
+const ingredientInfo = data.extendedIngredients
+  const listItems = ingredientInfo.map((item,index) => <Step key={index} items={item} /> );
 
   return (
 
 <PantryWrapper>
+
   {listItems}
+
 </PantryWrapper>
   );
 }
 
-export default Pantry;
+export default InstructionCard;

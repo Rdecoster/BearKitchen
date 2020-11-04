@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import InstructionCard from './InstructionCard.jsx'
 
 const ResultWrapper = styled.div`
 
@@ -14,7 +15,7 @@ flex-shrink: 1 2 auto;
 const ImageWrapper = styled.div`
 display: flex;
 flex-shrink: 1 2 auto;
-height: 200px;
+height: auto;
 width: auto;
 padding:10px;
 border-radius: 25px;
@@ -28,14 +29,15 @@ img{
 }
 
 `
-function ResultItem({items}) {
+function ResultItem({items, data}) {
 
 
     return (
   <ResultWrapper>
     <ImageWrapper onClick={(event)=>{event.preventDefault();console.log('clicked')}}>
       <img src={items.image}></img><h3>{items.title}</h3>
-      </ImageWrapper>
+      <InstructionCard data ={data} />
+      </ImageWrapper >
 
   </ResultWrapper>
     );

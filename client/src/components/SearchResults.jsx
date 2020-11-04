@@ -15,9 +15,9 @@ flex-shrink: 1 2 auto;
 `
 
 function SearchResults({data}) {
-  console.log(data)
-
-    const listItems = data.map((item,index) => <ResultItem key={index} items={item}/> );
+  // console.log(data)
+    const listIngredients = data.recipeInfo
+    const listItems = data.searchResults.map((item,index) => <ResultItem key={index} items={item} data={listIngredients}/> );
 
     return (
   <ResultsWrapper>

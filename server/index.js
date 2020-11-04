@@ -20,6 +20,9 @@ app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
   app.get('/recipe/:id', controller.getRecipe)
 
+  app.post('/user',controller.postUser)
+
+  app.get('/getPantry',controller.getPantry)
 
 
 

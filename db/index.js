@@ -9,10 +9,21 @@ db.once('open', function() {
 
 
 
+const Doc = mongoose.model('Doc', new mongoose.Schema({
+  pantry: String,
+  user_id: String,
+ }));
 
 
 
+ Doc.find(function (err, results) {
+  if (err) {return console.error(err)}
+  else{
+  console.log(results,"results from restart");
+ }
+})
 
 module.exports = {
   db,
+  Doc,
 };
