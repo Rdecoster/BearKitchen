@@ -52,14 +52,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pantry:[""],
-      ingredientSearch:[""],
+      pantry:[],
+      ingredientSearch:[],
       searchResults: dummyData,
       recipeInfo: dummyIngredients,
       user: '',
     };
     this.addToPantry = this.addToPantry.bind(this);
     this.setUser = this.setUser.bind(this);
+    this.addToSearch = this.addToSearch.bind(this);
   }
 
 addToPantry(item){
@@ -104,6 +105,23 @@ setUser(input){
   })
 }
 
+addToSearch(input){
+  this.setState({ingredientSearch: [...this.state.ingredientSearch,input]})
+}
+
+deleteFromSearch(input){
+  let array = this.state.ingredientSearch;
+  let index = array.indexOf(array);
+
+  if(index >= 0) {
+    array.splice(index,1)
+    this.setState({ingredientSearch: array})
+  }
+
+}
+SearchPantry(){
+  axios('/search')
+}
 
   render() {
 
@@ -117,7 +135,7 @@ setUser(input){
           </Header>
          <AddForm addToPantry={this.addToPantry}/>
         Pantry
-        <Pantry pantry={this.state.pantry}/>
+        <Pantry pantry={this.state.pantry} addToSearch={this.addToSearch}/>
         <Button>Search Recipes</Button>
         <SearchResults data={this.state}/>
 

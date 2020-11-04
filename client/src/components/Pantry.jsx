@@ -18,9 +18,9 @@ flex-shrink: 1 2 auto;
 
 `
 
-function Pantry({pantry}) {
+function Pantry({pantry,addToSearch}) {
 // console.log(pantry)
-  const listItems = pantry.map((item,index) => <PantryItem key={index} items={item} /> );
+  const listItems = pantry.map((item,index) => <PantryItem key={index} items={item} addToSearch={addToSearch} /> );
 
   return (
 

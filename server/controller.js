@@ -14,16 +14,16 @@ const recipeSearch= (req, res)=>{
       requestString = requestString + ingredient
 
     requestString = requestString + '&number=2';
-
-      axios.get(requestString)
-      .then((results)=> {
-        res.status(200).send(results)
-        console.log(results,"winning")
-      })
-      .catch((err)=>{
-        res.status(400).send(err)
-        console.log('we had an error', err)
-      })
+      console.log(requestString)
+      // axios.get(requestString)
+      // .then((results)=> {
+      //   res.status(200).send(results)
+      //   console.log(results,"winning")
+      // })
+      // .catch((err)=>{
+      //   res.status(400).send(err)
+      //   console.log('we had an error', err)
+      // })
     })
   }
     const getRecipe = (req, res)=> {

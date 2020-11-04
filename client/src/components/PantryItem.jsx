@@ -30,6 +30,9 @@ this.handleSubmit = this.handleSubmit.bind(this)
 
   handleChange(event) {
     this.setState({isSelected: !this.state.isSelected});
+    if( this.state.isSelected){
+      this.props.addToSearch(this.props.items)
+    }
   }
 
   handleSubmit(event) {
@@ -37,9 +40,12 @@ this.handleSubmit = this.handleSubmit.bind(this)
     event.preventDefault();
   }
 
+
+
   render() {
     const item= this.props.items;
     // console.log(item)
+
     return (
 
       <ItemWrapper>
