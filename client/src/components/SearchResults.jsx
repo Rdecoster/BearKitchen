@@ -14,16 +14,26 @@ flex-shrink: 1 2 auto;
 
 `
 
-function SearchResults({data}) {
-  // console.log(data)
-    const listIngredients = data.recipeInfo
-    const listItems = data.searchResults.map((item,index) => <ResultItem key={index} items={item} data={listIngredients}/> );
+function SearchResults(props) {
+  console.log(props, "props")
+  const items = props.data
+  console.log(items, "my items")
+  const listIngredients = []
 
-    return (
-  <ResultsWrapper>
-    <div>{listItems}</div>
-  </ResultsWrapper>
-    );
-  }
 
-  export default SearchResults;
+  return (
+    // <ResultsWrapper>
+    <div>
+      {  items.map((thing, index) =>
+        <div>
+          <ResultItem key={index + index} value={thing} addRecipeInfo={props.addRecipeInfo} />
+        </div>
+      )
+      }
+    </div>
+
+    // </ResultsWrapper>
+  );
+}
+
+export default SearchResults;

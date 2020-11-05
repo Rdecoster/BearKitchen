@@ -16,18 +16,18 @@ wrap: none;
 
 
 `
-function Step({items}) {
+function Step({ items }) {
 
 
-    return (
+  return (
 
-    <ListWrapper onClick={(event)=>{event.preventDefault();console.log('clicked')}}>
+    <ListWrapper onClick={(event) => { event.preventDefault(); console.log('clicked') }}>
       <div>
-      <li>{items.original}</li>
+        <li>{items.original}</li>
       </div>
-      </ListWrapper>
+    </ListWrapper>
 
-    );
-  }
+  );
+}
 
-  export default Step;
+export default Step;

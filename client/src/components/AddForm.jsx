@@ -16,7 +16,7 @@ class AddForm extends React.Component {
 
   handleSubmit(event) {
     const {addToPantry} = this.props
-    alert('An essay was submitted: ' + this.state.value);
+
     addToPantry(this.state.value)
     event.preventDefault();
 
@@ -27,7 +27,7 @@ class AddForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
 
-          <textarea value={this.state.value} onChange={this.handleChange} />
+          <input value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Add To Pantry" />
       </form>

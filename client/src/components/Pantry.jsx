@@ -15,6 +15,7 @@ justify-content: center;
 flex-wrap: wrap;
 flex-direction: row;
 flex-shrink: 1 2 auto;
+border-radius: 25px;
 
 `
 

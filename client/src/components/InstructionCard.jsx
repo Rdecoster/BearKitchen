@@ -2,7 +2,7 @@ import React from 'react';
 import Step from './Step.jsx'
 import styled from 'styled-components';
 
-const PantryWrapper = styled.div `
+const PantryWrapper = styled.div`
 display:flex;
 height: auto;
 width: 400px;
@@ -19,18 +19,21 @@ overflow-y: none;
 
 `
 
-function InstructionCard({data}) {
-// console.log(data)
-const ingredientInfo = data.extendedIngredients
-  const listItems = ingredientInfo.map((item,index) => <Step key={index} items={item} /> );
+function InstructionCard(props) {
+  console.log(props, "my props from instructioncard")
+  console.log(props.data.data, "myprops data")
+  const ingredientInfo = props.data.data.extendedIngredients
+
+
 
   return (
 
-<PantryWrapper>
-
-  {listItems}
-
-</PantryWrapper>
+    <PantryWrapper>
+      <div>
+        {ingredientInfo.map((item, index) => <div><Step key={index} items={item} /></div>)
+        }
+      </div>
+    </PantryWrapper>
   );
 }
 

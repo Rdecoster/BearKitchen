@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-const ItemWrapper = styled.div `
+const ItemWrapper = styled.div`
 
 height: 20px;
 width: auto;
 margin: 10px;
-background-color: green;
+background-color: grey;
 display: flex;
 overflow: visible;
 /* flex-shrink: 1 2 auto; */
 justify-content: flex-start;
 padding: 4px;
 flex-wrap: wrap;
-
+border-radius: 25px;
 
 `
 
@@ -21,16 +21,16 @@ class PantryItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isSelected: true,
+      isSelected: false,
 
     };
-this.handleChange = this.handleChange.bind(this)
-this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(event) {
-    this.setState({isSelected: !this.state.isSelected});
-    if( this.state.isSelected){
+    this.setState({ isSelected: !this.state.isSelected });
+    if (!this.state.isSelected) {
       this.props.addToSearch(this.props.items)
     } else {
       this.props.deleteFromSearch(this.props.items)
@@ -38,14 +38,14 @@ this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+
     event.preventDefault();
   }
 
 
 
   render() {
-    const item= this.props.items;
+    const item = this.props.items;
     // console.log(item)
 
     return (

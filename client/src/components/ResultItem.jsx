@@ -8,7 +8,7 @@ display: flex;
 overflow: visible;
 flex-shrink: 1 2 auto;
 justify-content: center;
-flex-direction: column;
+flex-direction: row;
 flex-shrink: 1 2 auto;
 `
 
@@ -29,18 +29,49 @@ img{
 }
 
 `
-function ResultItem({items, data}) {
 
-
-    return (
-  <ResultWrapper>
-    <ImageWrapper onClick={(event)=>{event.preventDefault();console.log('clicked')}}>
-      <img src={items.image}></img><h3>{items.title}</h3>
-      <InstructionCard data ={data} />
-      </ImageWrapper >
-
-  </ResultWrapper>
-    );
+class ResultItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      recipieInfo: { 'data': { 'extendedIngredients': [{ 'original': 'none' }, { 'original': 'none' }] } },
+    }
+    this.setInfo = this.setInfo.bind(this)
+  }
+  setInfo() {
+    let winning = "be"
+    this.props.addRecipeInfo(this.props.value.id, ((err, results) => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(results, "this.setinfo!!!!!!!!!!!!!!!")
+        this.setState({ recipieInfo: results })
+        winning = results
+      }
+    }))
+    console.log(winning, "am i really winning?")
+  }
+  // this.setState({recipieInfo: info})
+  componentDidMount() {
+    this.setInfo()
   }
 
-  export default ResultItem;
+  render() {
+
+    let item = this.props.value
+    console.log(item, "items from result!!!!!!!!!!!")
+
+    return (
+      <ResultWrapper>
+        <ImageWrapper onClick={() => { console.log('clicked the thing'); this.setInfo() }}>
+          <img src={item.image}></img>
+          <InstructionCard data={this.state.recipieInfo} />
+        </ImageWrapper >
+
+      </ResultWrapper>
+    );
+  }
+}
+export default ResultItem;
+
+
