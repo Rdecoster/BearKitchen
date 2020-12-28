@@ -1,9 +1,9 @@
 # BearKitchen
 
 
-BearKitchen is an webaplication for finding recipes based on what you have in your kitchen. 
+BearKitchen is an web aplication for finding recipes based on what you have in your kitchen. 
 Build With React, Node, express, MongoDB using the spoonacular api. 
-Please check out spoonacular.com on API documentation. 
+Please check out spoonacular.com on API documentation and to get an API key. 
 
 ## Installation
 
